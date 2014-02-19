@@ -1,0 +1,12 @@
+{
+  "name": "computering",
+  "version": "0.0.0",
+  "description": "Seem a live coding demi-god by using computering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daan van Berkel",
+  "license": "MIT",
+  "dependencies": {}
+}
