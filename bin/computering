@@ -4,7 +4,13 @@ var fs = require('fs');
 var keypress = require('keypress');
 var LiveCoder = require('../lib/index');
 
-var inputStream = fs.createReadStream('lib/index.js');
+var path = process.argv[2];
+if (!path) {
+    console.log('missing path argument');
+    process.exit(1);
+}
+
+var inputStream = fs.createReadStream(path);
 inputStream.on('readable', function(){
     var coder = new LiveCoder(inputStream);
 
