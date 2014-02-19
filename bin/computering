@@ -1,0 +1,23 @@
+#! /usr/bin/env node
+
+var fs = require('fs');
+var keypress = require('keypress');
+var LiveCoder = require('../lib/index');
+
+var inputStream = fs.createReadStream('lib/index.js');
+inputStream.on('readable', function(){
+    var coder = new LiveCoder(inputStream);
+
+    coder.pipe(process.stdout);
+
+    process.stdin.on('keypress', function(ch, key){
+	coder.trigger();
+	if (key && key.ctrl && key.name == 'c') {
+	    process.stdin.pause();
+	}
+    });
+});
+
+keypress(process.stdin);
+process.stdin.setRawMode(true);
+process.stdin.resume();
