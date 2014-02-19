@@ -8,5 +8,7 @@
   },
   "author": "Daan van Berkel",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "keypress": "~0.2.1"
+  }
 }
